@@ -103,20 +103,5 @@ def extract_tickets(html_or_text, subject, mail_date):
         text = soup.get_text('\n')  # 保留换行信息
     else:
         text = truncate(html_or_text).replace("<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "")
-        # return extract_tickets_from_text(text,order_type,order_number)
 
-    # 按行处理
-    # lines = text.split('\n')
-    # ticket_lines = [line.strip() for line in lines if '票价' in line and '元' in line]
     return extract_tickets_from_text(text, order_type, order_number, mail_date)
-    # 合并连续行（处理换行打断的情况）
-    # merged_lines = []
-    # buffer = ''
-    # for line in ticket_lines:
-    #     if line.endswith('元') or line.endswith('元。') or line.endswith('电子客票。'):
-    #         merged_lines.append(buffer + line)
-    #         buffer = ''
-    #     else:
-    #         buffer += line
-
-    # return extract_tickets_from_text('\n'.join(merged_lines),order_type,order_number)

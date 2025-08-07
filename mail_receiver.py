@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 def connect_email(IMAP_SERVER, EMAIL_ACCOUNT, PASSWORD):
     mail = imaplib.IMAP4_SSL(IMAP_SERVER)
     mail.login(EMAIL_ACCOUNT, PASSWORD)
-    mail.select('inbox')  # 选择收件箱
+    mail.select('inbox')  # 选择收件箱。如果是其它文件夹，需要手动修改。
     return mail
 
 
